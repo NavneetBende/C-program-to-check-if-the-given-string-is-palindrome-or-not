@@ -1,0 +1,34 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+void Lower_case(char str[]) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (str[i] > 64 && str[i] < 91) str[i] += 32;
+        i++;
+    }
+}
+int main() {
+    char str[10] = "nAman", rev[1000];
+    int i, j, count = 0;
+    cout << "String Before Reverse: " << str << endl;
+    // finding the length of the string
+    while (str[count] != '\0') {
+        count++;
+    }
+    j = count - 1;
+    Lower_case(str);
+    // reversing the string by storing it in another array
+    for (i = 0; i <= count; i++) {
+        rev[i] = str[j];
+        j--;
+    }
+    cout << "String After Reverse:" << rev << endl;
+    int res = strcmp(str, rev);
+    if (res == 0) {
+        cout << str << " is Palindrome";
+    } else {
+        cout << str << " Not palindorme";
+    }
+    return 0;
+}
