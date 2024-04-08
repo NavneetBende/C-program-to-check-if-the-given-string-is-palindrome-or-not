@@ -1,0 +1,38 @@
+// String palindrome program in c++
+#include <iostream>
+#include <stdio.h> 
+using namespace std;
+void Lower_case(char str[]){
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] > 64 && str[i] < 91)
+            str[i] += 32;
+        i++;
+    } 
+}
+// A function to check if a string str is palindrome
+void CheckPalindrome(char str[]) {
+// Start from leftmost and rightmost corners of str
+int l = 0;
+int h = strlen(str) - 1;
+
+// Keep comparing characters while they are same
+Lower_case(str);
+
+while (h > l) {  
+      if (str[l++] != str[h--]) { 
+           cout << "The String " << str << " is not a palindrome\n";           
+ return;      
+  }   
+ }    
+cout << "The String " << str << " is a palindrome"; 
+}
+// Driver program to test CheckPalindrome function int main() {    
+char str1[50] = "naman";  // size of char string    
+CheckPalindrome(str1);
+cout<<endl;
+char str2[50] = "radar";  // size of char string    
+CheckPalindrome(str2);
+return 0; 
+}
